@@ -49,33 +49,34 @@ public class Ejercicio12 extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 150, 30));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Cantidad de Películas a Alquilar");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 180, 30));
+        jLabel2.setText("Películas Gratis");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 180, 30));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Días de Alquiler");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 110, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, 30));
 
+        txtPeliculas.setEditable(false);
         txtPeliculas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPeliculasKeyTyped(evt);
             }
         });
-        jPanel1.add(txtPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 30));
+        jPanel1.add(txtPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 100, 30));
 
         txtDiasAlq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDiasAlqKeyTyped(evt);
             }
         });
-        jPanel1.add(txtDiasAlq, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 110, 30));
+        jPanel1.add(txtDiasAlq, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, 30));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Monto a Pagar");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 120, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 120, 30));
 
         txtMonto.setEditable(false);
-        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 100, 30));
+        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 100, 30));
 
         cmdCalcular.setText("Calcular");
         cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -97,72 +98,61 @@ public class Ejercicio12 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
-      String monto;
-      int peli,diasalq,op1,op2=0;
-      
-      if(txtPeliculas.getText().trim().isEmpty()){
-          JOptionPane.showMessageDialog(this, "Digite Número de Peliculas a Alquilar","ERROR",JOptionPane.ERROR_MESSAGE);
-          txtPeliculas.requestFocusInWindow();
-      }else if(txtDiasAlq.getText().trim().isEmpty()){
-        JOptionPane.showMessageDialog(this, "Digite Los Días a Alquilar","ERROR",JOptionPane.ERROR_MESSAGE);
-        txtDiasAlq.requestFocusInWindow();
-    }else{
-          peli=Integer.parseInt(txtPeliculas.getText());
-          diasalq=Integer.parseInt(txtDiasAlq.getText());
-          if(diasalq>=2){
-              op1=diasalq*1500;
-              peli=(peli*1500)-1500;
-              op2=op1+peli;
-          }else{
-              
-              op1=diasalq*1500;
-              peli=0;
-              op2=peli+op1;
-              
-          }
-          
-      }
-      monto=String.valueOf(op2);
-      txtMonto.setText(monto);
+        String monto, peli;
+        int diasalq, op1 = 0, op2 = 0;
+
+        if (txtDiasAlq.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite Los Días a Alquilar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtDiasAlq.requestFocusInWindow();
+        } else {
+            diasalq = Integer.parseInt(txtDiasAlq.getText());
+            op1 = diasalq * 1500;
+            op2 = 1;
+
+        }
+        monto = String.valueOf(op1);
+        txtMonto.setText(monto);
+        peli = String.valueOf(op2);
+        txtPeliculas.setText(peli);
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
         txtPeliculas.setText("");
         txtDiasAlq.setText("");
         txtMonto.setText("");
-        
+
         txtPeliculas.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void txtPeliculasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPeliculasKeyTyped
-        char c=evt.getKeyChar(); 
-             
-         
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-               
-              evt.consume(); }
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
     }//GEN-LAST:event_txtPeliculasKeyTyped
 
     private void txtDiasAlqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiasAlqKeyTyped
-         char c=evt.getKeyChar(); 
-             
-         
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-               
-              evt.consume(); }
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
     }//GEN-LAST:event_txtDiasAlqKeyTyped
 
     /**
