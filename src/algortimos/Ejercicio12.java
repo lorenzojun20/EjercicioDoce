@@ -50,11 +50,11 @@ public class Ejercicio12 extends javax.swing.JFrame {
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Películas Gratis");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 180, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 130, 30));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Días de Alquiler");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 110, 30));
 
         txtPeliculas.setEditable(false);
         txtPeliculas.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -62,14 +62,14 @@ public class Ejercicio12 extends javax.swing.JFrame {
                 txtPeliculasKeyTyped(evt);
             }
         });
-        jPanel1.add(txtPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 100, 30));
+        jPanel1.add(txtPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 100, 30));
 
         txtDiasAlq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDiasAlqKeyTyped(evt);
             }
         });
-        jPanel1.add(txtDiasAlq, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, 30));
+        jPanel1.add(txtDiasAlq, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 110, 30));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Monto a Pagar");
@@ -84,7 +84,7 @@ public class Ejercicio12 extends javax.swing.JFrame {
                 cmdCalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         cmdBorrar.setText("Borrar");
         cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +92,7 @@ public class Ejercicio12 extends javax.swing.JFrame {
                 cmdBorrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,13 +136,7 @@ public class Ejercicio12 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void txtPeliculasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPeliculasKeyTyped
-        char c = evt.getKeyChar();
 
-        if (!Character.isDigit(c)) {
-            getToolkit().beep();
-
-            evt.consume();
-        }
     }//GEN-LAST:event_txtPeliculasKeyTyped
 
     private void txtDiasAlqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiasAlqKeyTyped
